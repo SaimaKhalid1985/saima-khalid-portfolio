@@ -409,17 +409,11 @@ p { font-family: var(--fb); color: var(--t2); line-height: 1.82; font-weight: 50
 
 /* ─── PORTFOLIO ──────────────────────────────────────────────────────── */
 .portfolio { background: var(--vdd); }
-.port-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 220px 220px; gap: 14px; margin-top: 52px; }
+.port-grid { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; gap: 14px; margin-top: 52px; }
 .port-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: rgba(255,255,255,.03); border: 1px solid var(--brd); border-radius: var(--r); text-decoration: none; cursor: pointer; transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s; position: relative; overflow: hidden; padding: 16px; }
 .port-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(228,63,255,.05) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; }
 .port-card:hover { border-color: rgba(228,63,255,.44); background: rgba(228,63,255,.05); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(228,63,255,.1); }
 .port-card:hover::after { opacity: 1; }
-.port-card:nth-child(1) { grid-column: 1; grid-row: 1; }
-.port-card:nth-child(2) { grid-column: 2; grid-row: 1; }
-.port-card:nth-child(3) { grid-column: 3; grid-row: 1; }
-.port-card:nth-child(4) { grid-column: 1; grid-row: 2; }
-.port-card:nth-child(5) { grid-column: 2; grid-row: 2; }
-.port-card:nth-child(6) { grid-column: 3; grid-row: 2; }
 .port-icon { position: relative; z-index: 1; opacity: 0.2; transition: opacity 0.25s; }
 .port-card:hover .port-icon { opacity: 0.5; }
 .port-label { font-family: var(--fb); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.35); text-align: center; position: relative; z-index: 1; transition: color 0.25s; }
@@ -483,6 +477,12 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
 .reveal-d4 { transition-delay: 0.4s; }
 .reveal-d5 { transition-delay: 0.5s; }
 
+.price-ack { display:flex; gap:14px; align-items:flex-start; cursor:pointer; margin-bottom:20px; padding:18px 20px; background:rgba(228,63,255,.05); border:1px solid rgba(228,63,255,.18); border-radius:var(--r); }
+.price-ack input[type="checkbox"] { width:20px; height:20px; flex-shrink:0; margin-top:2px; accent-color:var(--mag); cursor:pointer; }
+.price-ack span { font-family:var(--fb); font-size:0.9rem; color:var(--t2); line-height:1.65; font-weight:500; }
+.brief-btn-wrap { margin-top:4px; }
+.brief-btn-wrap .btn { transition:opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; }
+
 :focus-visible { outline: 2px solid var(--mag); outline-offset: 3px; border-radius: 3px; }
 
 /* ─── REDUCED MOTION ─────────────────────────────────────────────────── */
@@ -514,12 +514,6 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
   .brief-actions { grid-template-columns: 1fr; }
   .port-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
   .port-card { min-height: 180px; }
-  .port-card:nth-child(1),
-  .port-card:nth-child(2),
-  .port-card:nth-child(3),
-  .port-card:nth-child(4),
-  .port-card:nth-child(5),
-  .port-card:nth-child(6) { grid-column: auto; grid-row: auto; }
   .foot-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 600px) {
@@ -1004,7 +998,7 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
       <div class="brief-step reveal reveal-d1">
         <span class="brief-step-n">Step 02</span>
         <h3>Fill the Strategy Brief</h3>
-        <p>A structured questionnaire covering the product, the buyer, the traffic source, and existing assets. Takes ten to fifteen minutes. Includes a mandatory pricing acknowledgment before submission.</p>
+        <p>A structured questionnaire covering the product, the buyer, the traffic source, and existing assets. Takes ten to fifteen minutes to complete.</p>
       </div>
       <div class="brief-step reveal reveal-d2">
         <span class="brief-step-n">Step 03</span>
@@ -1017,7 +1011,13 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
         <span class="brief-action-label">Step 02 — Start Here</span>
         <h3>Fill the Strategy Brief</h3>
         <p>The brief is the first step. It gives context needed to make the discovery call productive. Do not skip it. Calls without a submitted brief will not be confirmed.</p>
-        <a href="#" class="btn btn-mag">Fill the Strategy Brief</a>
+        <label class="price-ack" for="priceAck">
+          <input type="checkbox" id="priceAck" onchange="toggleBrief(this)">
+          <span>I have reviewed the pricing listed on the website and I am comfortable with the investment range before submitting this brief</span>
+        </label>
+        <div class="brief-btn-wrap">
+          <a id="briefBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSfxPeykbiYRdMxZ4UhTKY8fZg0tX2ZcGIYj07lCJ479zvzV8w/formResponse" class="btn btn-mag" style="opacity:.4;pointer-events:none" target="_blank" rel="noopener">Fill the Strategy Brief</a>
+        </div>
       </div>
       <div class="brief-action-box secondary">
         <span class="brief-action-label">Step 03 — After the Brief</span>
@@ -1031,7 +1031,7 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
       </div>
     </div>
     <div class="brief-note reveal">
-      <p><strong>Complete the Strategy Brief before booking a call.</strong> The brief includes a pricing acknowledgment checkbox. Calls booked without a submitted brief will not be confirmed. Prefer a written scope proposal? Email directly at <a href="mailto:saimakhalid2873@gmail.com" style="color:var(--gold);border-bottom:1px solid rgba(251,161,25,.3)">saimakhalid2873@gmail.com</a></p>
+      <p><strong>Complete the Strategy Brief before booking a call.</strong> Calls booked without a submitted brief will not be confirmed. Prefer a written scope proposal? Email directly at <a href="mailto:saimakhalid2873@gmail.com" style="color:var(--gold);border-bottom:1px solid rgba(251,161,25,.3)">saimakhalid2873@gmail.com</a></p>
     </div>
   </div>
 </section>
@@ -1045,25 +1045,21 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
       <p>Every piece was written to a confirmed awareness level and sophistication stage. Every page-based deliverable arrived as a fully coded, deploy-ready HTML file.</p>
     </div>
     <div class="port-grid reveal">
-      <a href="#" class="port-card" aria-label="Facebook Ad Copy">
+      <a href="https://drive.google.com/drive/folders/1lYyMbQzCaRMAh7_r7S736LaoVqPNAcnK?usp=sharing" class="port-card" aria-label="Portfolio &amp; Resume" target="_blank" rel="noopener">
         <svg class="port-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L24 14L14 24M4 14H24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="port-label">Facebook Ad Copy</span>
+        <span class="port-label">Portfolio &amp; Resume</span>
       </a>
-      <a href="#" class="port-card" aria-label="Email Sequence">
-        <svg class="port-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L24 14L14 24M4 14H24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="port-label">Email Sequence</span>
-      </a>
-      <a href="#" class="port-card" aria-label="Sales Page">
+      <a href="https://veloxsupplement.netlify.app/" class="port-card" aria-label="Sales Page" target="_blank" rel="noopener">
         <svg class="port-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L24 14L14 24M4 14H24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span class="port-label">Sales Page</span>
       </a>
-      <a href="#" class="port-card" aria-label="Advertorial">
-        <svg class="port-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L24 14L14 24M4 14H24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="port-label">Advertorial</span>
-      </a>
-      <a href="#" class="port-card" aria-label="VSL Script">
+      <a href="https://vslfunnel.netlify.app/" class="port-card" aria-label="VSL Script" target="_blank" rel="noopener">
         <svg class="port-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L24 14L14 24M4 14H24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span class="port-label">VSL Script</span>
+      </a>
+      <a href="https://thelaptopliving-6figure.netlify.app/" class="port-card" aria-label="Advertorial Funnel" target="_blank" rel="noopener">
+        <svg class="port-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L24 14L14 24M4 14H24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="port-label">Advertorial Funnel</span>
       </a>
       <a href="#" class="port-card" aria-label="Ad Creatives">
         <svg class="port-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L24 14L14 24M4 14H24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1120,6 +1116,7 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
     <div class="reveal" style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap">
       <a href="#contact" class="btn btn-mag">Fill the Strategy Brief</a>
       <a href="#contact" class="btn btn-ghost">Book a Discovery Call</a>
+
     </div>
   </div>
 </section>
@@ -1146,7 +1143,7 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" onclick="tFaq(this)">How do I book a discovery call?<span class="faq-ico">+</span></button>
-        <div class="faq-a"><p>Fill the Strategy Brief first using the link in the contact section above. The brief includes a mandatory pricing acknowledgment. Once submitted, use the Calendly link to book your call. Calls are available Monday through Friday, 9 AM to 2 PM Pakistan Standard Time. Calls booked without a completed brief will not be confirmed.</p></div>
+        <div class="faq-a"><p>Fill the Strategy Brief first using the link in the contact section above. Once submitted, use the Calendly link to book your call. Calls are available Monday through Friday, 9 AM to 2 PM Pakistan Standard Time. Calls booked without a completed brief will not be confirmed.</p></div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" onclick="tFaq(this)">What is the five-phase process and how does it affect the copy?<span class="faq-ico">+</span></button>
@@ -1170,8 +1167,8 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
   <div class="wide">
     <div class="foot-grid">
       <div class="foot-brand">
-        <span class="foot-logo">Saima Khalid</span>
-        <p>Direct Response Copywriter and Funnel Builder for DTC and Ecommerce. Strategy, copy, and coded HTML. One person. Full funnel.</p>
+        <span class="foot-logo" style="font-size:1.625rem;color:var(--gold)">Saima Khalid</span>
+        <p style="font-weight:700;color:var(--t1);font-size:0.9375rem">Direct Response Copywriter &amp; Funnel Builder for DTC and Ecommerce Brands</p>
       </div>
       <div class="foot-col">
         <h4>Navigate</h4>
@@ -1188,12 +1185,12 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
         <ul>
           <li><a href="mailto:saimakhalid2873@gmail.com">saimakhalid2873@gmail.com</a></li>
           <li><a href="https://linkedin.com/in/saima-khalid-59a7b4387" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://saimakhalid-copywriting-portfolio.netlify.app" target="_blank" rel="noopener">Portfolio</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1lYyMbQzCaRMAh7_r7S736LaoVqPNAcnK?usp=sharing" target="_blank" rel="noopener">Portfolio</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <p>&copy; 2026 Saima Khalid &mdash; Direct Response Copywriter</p>
+      <p>&copy; 2026 Saima Khalid. All Rights Reserved.</p>
       <p>Strategy. Copy. Coded HTML. One person. Full funnel.</p>
     </div>
   </div>
@@ -1289,6 +1286,13 @@ const countObs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target, parseInt(e.target.dataset.count)); countObs.unobserve(e.target); } });
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+/* ── PRICE ACKNOWLEDGMENT CHECKBOX ─────────────────────────────────── */
+function toggleBrief(cb) {
+  const btn = document.getElementById('briefBtn');
+  btn.style.opacity = cb.checked ? '1' : '.4';
+  btn.style.pointerEvents = cb.checked ? 'auto' : 'none';
+}
 
 /* ── FAQ ────────────────────────────────────────────────────────────── */
 function tFaq(btn) {
