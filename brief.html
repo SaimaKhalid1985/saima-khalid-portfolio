@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Strategy Brief & Discovery Call — Saima Khalid</title>
+<meta name="description" content="Fill the Strategy Brief and book your discovery call with Saima Khalid, Direct Response Copywriter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Ethiopic:wght@700;900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --v:    #3801AD;
+  --vd:   #2A0090;
+  --vdd:  #1A0062;
+  --mag:  #E43FFF;
+  --gold: #FBA119;
+  --w:    #FFFFFF;
+  --t1:   #FFFFFF;
+  --t2:   rgba(255,255,255,.86);
+  --t3:   rgba(255,255,255,.56);
+  --brd:  rgba(255,255,255,.10);
+  --fh:   'Noto Serif Ethiopic', serif;
+  --fb:   'Public Sans', sans-serif;
+  --r:    6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--vdd);
+  color: var(--t1);
+  font-family: var(--fb);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.78;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.col { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+
+/* ── TOP BAR ── */
+.topbar {
+  background: rgba(6,0,21,.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.topbar-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbar-brand { font-family: var(--fb); font-size: 1rem; font-weight: 800; color: var(--w); }
+.topbar-tag {
+  font-family: var(--fb);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, var(--mag), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.back-link {
+  font-family: var(--fb);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--t3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--mag); }
+
+/* ── HERO ── */
+.page-hero {
+  padding: 64px 0 52px;
+  background: linear-gradient(180deg, rgba(56,1,173,.28) 0%, transparent 100%);
+  border-bottom: 1px solid var(--brd);
+}
+.page-hero h1 {
+  font-family: var(--fh);
+  font-size: clamp(1.875rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.page-hero p {
+  font-family: var(--fb);
+  font-size: 1rem;
+  color: var(--t2);
+  max-width: 540px;
+  line-height: 1.8;
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--fb);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+/* ── PROGRESS STEPS ── */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 40px 0 0;
+}
+.prog-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fb);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+.prog-step.active { color: var(--t1); }
+.prog-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.prog-step.active .prog-num {
+  border-color: var(--mag);
+  color: var(--mag);
+  background: rgba(228,63,255,.08);
+}
+.prog-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,.12);
+  margin: 0 16px;
+}
+
+/* ── SECTION LABELS ── */
+.step-section { padding: 56px 0; }
+.step-section + .step-section { border-top: 1px solid var(--brd); }
+.step-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.step-num-lg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--mag);
+  background: rgba(228,63,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fb);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--mag);
+  flex-shrink: 0;
+}
+.step-section h2 {
+  font-family: var(--fh);
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.step-section > .col > p {
+  font-size: 0.9375rem;
+  color: var(--t2);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  max-width: 560px;
+}
+
+/* ── FORM WRAPPER ── */
+.form-wrap {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--brd);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.form-wrap iframe {
+  display: block;
+  width: 100%;
+  border: none;
+  min-height: 1400px;
+}
+
+/* ── DIVIDER ── */
+.step-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 0;
+  border-top: 1px solid var(--brd);
+  border-bottom: 1px solid var(--brd);
+  background: rgba(228,63,255,.03);
+}
+.step-divider span {
+  font-family: var(--fb);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mag);
+}
+.arrow-down {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, var(--mag), transparent);
+}
+
+/* ── CALENDLY WRAP ── */
+.calendly-wrap {
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--brd);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.avail-note {
+  padding: 14px 20px;
+  background: rgba(251,161,25,.05);
+  border-bottom: 1px solid rgba(251,161,25,.14);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avail-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; box-shadow: 0 0 0 3px rgba(251,161,25,.2); }
+.avail-note p { font-family: var(--fb); font-size: 0.8rem; font-weight: 600; color: var(--t2); line-height: 1.5; }
+
+/* ── FOOTER ── */
+footer {
+  background: rgba(0,0,0,.22);
+  border-top: 1px solid var(--brd);
+  padding: 32px 0;
+  margin-top: 64px;
+}
+.foot-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.foot-inner p { font-family: var(--fb); font-size: 0.75rem; color: var(--t3); }
+.foot-inner a { color: var(--gold); border-bottom: 1px solid rgba(251,161,25,.3); transition: opacity 0.2s; }
+.foot-inner a:hover { opacity: .75; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div>
+      <div class="topbar-brand">Saima Khalid</div>
+      <div class="topbar-tag">Direct Response Copywriter &amp; Funnel Builder</div>
+    </div>
+    <a href="https://saimakhalid1985.github.io/saima-khalid-portfolio/" class="back-link">
+      &#x2190; Back to Portfolio
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="col">
+    <span class="eyebrow">Two Steps. That's It.</span>
+    <h1>Fill the Brief. <span style="color:var(--mag)">Book the Call.</span></h1>
+    <p>Complete the Strategy Brief below — it takes 10 to 15 minutes. Once submitted, book your discovery call using the Calendly scheduler directly below it. Both steps on one page.</p>
+    <div class="progress-bar">
+      <div class="prog-step active">
+        <div class="prog-num">1</div>
+        <span>Strategy Brief</span>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step active">
+        <div class="prog-num">2</div>
+        <span>Book Your Call</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 1: GOOGLE FORM -->
+<section class="step-section">
+  <div class="col">
+    <div class="step-label">
+      <div class="step-num-lg">1</div>
+      <div>
+        <h2>Fill the Strategy Brief</h2>
+      </div>
+    </div>
+    <p>Answer every question as specifically as you can. The more detail you provide, the more productive the discovery call will be. Do not skip any fields.</p>
+    <div class="form-wrap">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfxPeykbiYRdMxZ4UhTKY8fZg0tX2ZcGIYj07lCJ479zvzV8w/viewform?embedded=true"
+        title="Strategy Brief"
+        loading="lazy"
+      >Loading the Strategy Brief...</iframe>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="step-divider">
+  <span>Brief submitted? Scroll down to book your call.</span>
+  <div class="arrow-down"></div>
+</div>
+
+<!-- STEP 2: CALENDLY -->
+<section class="step-section">
+  <div class="col">
+    <div class="step-label">
+      <div class="step-num-lg">2</div>
+      <div>
+        <h2>Book Your Discovery Call</h2>
+      </div>
+    </div>
+    <p>Choose a date and time that works for you. All calls are 30 minutes. Calls booked without a submitted brief will not be confirmed.</p>
+    <div class="calendly-wrap">
+      <div class="avail-note">
+        <div class="avail-dot"></div>
+        <p>Available Monday to Friday &bull; 9:00 AM to 2:00 PM Pakistan Standard Time (PKT / UTC+5)</p>
+      </div>
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/saimakhalid2873/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=0d0035&text_color=ffffff&primary_color=e43fff"
+        style="min-width:320px;height:700px;"
+      ></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <p>&copy; 2026 Saima Khalid. All Rights Reserved.</p>
+    <p>Questions? Email <a href="mailto:saimakhalid2873@gmail.com">saimakhalid2873@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
