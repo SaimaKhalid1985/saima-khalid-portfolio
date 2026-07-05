@@ -477,6 +477,11 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
 .reveal-d4 { transition-delay: 0.4s; }
 .reveal-d5 { transition-delay: 0.5s; }
 
+.port-card-images { padding: 8px; justify-content: flex-start; gap: 6px; }
+.port-imgs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; width: 100%; }
+.port-imgs-grid img { width: 100%; height: 82px; object-fit: cover; border-radius: 3px; opacity: 0.72; transition: opacity 0.25s; }
+.port-card-images:hover .port-imgs-grid img { opacity: 1; }
+
 .price-ack { display:flex; gap:14px; align-items:flex-start; cursor:pointer; margin-bottom:20px; padding:18px 20px; background:rgba(228,63,255,.05); border:1px solid rgba(228,63,255,.18); border-radius:var(--r); }
 .price-ack input[type="checkbox"] { width:20px; height:20px; flex-shrink:0; margin-top:2px; accent-color:var(--mag); cursor:pointer; }
 .price-ack span { font-family:var(--fb); font-size:0.9rem; color:var(--t2); line-height:1.65; font-weight:500; }
@@ -1061,8 +1066,13 @@ footer { background: linear-gradient(135deg, rgba(228,63,255,.18) 0%, rgba(56,1,
         <svg class="port-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L24 14L14 24M4 14H24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span class="port-label">Advertorial Funnel</span>
       </a>
-      <a href="#" class="port-card" aria-label="Ad Creatives">
-        <svg class="port-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4L24 14L14 24M4 14H24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <a href="#" class="port-card port-card-images" aria-label="Ad Creatives">
+        <div class="port-imgs-grid">
+          <img src="ads/primal-queen-ad1-bundle.png" alt="Ad Creative 1">
+          <img src="ads/primal-queen-ad2-bold-hook-brand-pink.png" alt="Ad Creative 2">
+          <img src="ads/primal-queen-ad4-swap.png" alt="Ad Creative 3">
+          <img src="ads/primal-queen-ad5-fatigue-iron-v2.png" alt="Ad Creative 4">
+        </div>
         <span class="port-label">Ad Creatives</span>
       </a>
     </div>
